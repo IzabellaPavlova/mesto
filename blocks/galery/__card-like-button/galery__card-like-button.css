@@ -1,0 +1,16 @@
+.galery__card-like-button {
+  margin: 0 20px 0 0;
+  padding: 0;
+  width: 22px;
+  height: 19px;
+  background-color: #FFFFFF;
+  background-image: url(../../../images/galery__card-like-button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}
+
+.galery__card-like-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
