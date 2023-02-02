@@ -1,7 +1,7 @@
 let popup = document.querySelector('.popup');
 let editButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.popup__close-button');
-let submitButton = document.querySelector('.form__submit-button');
+let submitForm = document.querySelector('.form');
 
 let userCard = getUserCard();
 let newUserCard = getProfileForm()
@@ -37,4 +37,4 @@ function updateUserCard(evt) {
 
 editButton.addEventListener('click', openPopup);
 closeButton.addEventListener('click', closePopup);
-submitButton.addEventListener('submit', updateUserCard);
+submitForm.addEventListener('submit', updateUserCard);
