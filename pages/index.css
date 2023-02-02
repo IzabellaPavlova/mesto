@@ -23,7 +23,7 @@
 
 /* Galery */
 @import url(../blocks/galery/galery.css);
-@import url(../blocks/galery/__card-list/galery__card-list.css);
+@import url(../blocks/galery/__cards/galery__cards.css);
 @import url(../blocks/galery/__card-item/galery__card-item.css);
 @import url(../blocks/galery/__card-image/galery__card-image.css);
 @import url(../blocks/galery/__card-description/galery__card-description.css);

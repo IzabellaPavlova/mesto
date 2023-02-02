@@ -32,7 +32,7 @@
             новое место"></button>
         </section>
         <section class="galery">
-          <ul class="galery__card-list">
+          <ul class="galery__cards">
             <li>
               <article class="galery__card-item">
                 <img class="galery__card-image" alt="Париж"
@@ -107,20 +107,20 @@
       </footer>
       <section class="popup">
         <div class="popup__container">
-          <form class="form">
-            <h2 class="form__title">Редактировать профиль</h2>
+          <form class="form" name="form-profile">
+            <p class="form__title">Редактировать профиль</p>
             <fieldset class="form__input-container">
-              <input class="form__input form__input-text-profile-name"
-                type="text" placeholder="Имя">
-              <input class="form__input form__input-text-profile-description"
-                type="text" placeholder="Описание">
+              <input class="form__input form__input_text-profile_name"
+                type="text" name="profile-name" placeholder="Имя">
+              <input class="form__input form__input_text-profile-description"
+                type="text" name="profile-description" placeholder="Описание">
             </fieldset>
-            <button class="form__submit-button" type="button">Сохранить</button>
+            <button class="form__submit-button" type="submit" form="form-profile">Сохранить</button>
           </form>
           <button class="popup__close-button" type="button" title="Закрыть"></button>
         </div>
       </section>
     </div>
-    <script src="./index.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
