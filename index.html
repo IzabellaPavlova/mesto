@@ -31,47 +31,59 @@
         </section>
         <section class="galery">
           <ul class="galery__card-list">
-            <li class="galery__card-item">
-              <img class="galery__card-image" alt="Париж" src="./images/Paris.jpg">
-              <div class="galery__card-description">
-                <h2 class="galery__card-title">Париж, Франция</h2>
-                <button class="galery__card-like-button" type="button" title="Понравилось"></button>
-              </div>
+            <li>
+              <article class="galery__card-item">
+                <img class="galery__card-image" alt="Париж" src="./images/Paris.jpg">
+                <div class="galery__card-description">
+                  <h2 class="galery__card-title">Париж, Франция</h2>
+                  <button class="galery__card-like-button" type="button" title="Понравилось"></button>
+                </div>
+              </article>
             </li>
-            <li class="galery__card-item">
-              <img class="galery__card-image" alt="Абиско" src="./images/Abisco.jpg">
-              <div class="galery__card-description">
-                <h2 class="galery__card-title">Абиско, Швеция</h2>
-                <button class="galery__card-like-button" type="button" title="Понравилось"></button>
-              </div>
+            <li>
+              <article class="galery__card-item">
+                <img class="galery__card-image" alt="Абиско" src="./images/Abisco.jpg">
+                <div class="galery__card-description">
+                  <h2 class="galery__card-title">Абиско, Швеция</h2>
+                  <button class="galery__card-like-button" type="button" title="Понравилось"></button>
+                </div>
+              </article>
             </li>
-            <li class="galery__card-item">
-              <img class="galery__card-image" alt="Копенгаген" src="./images/Kopengagen.jpg">
-              <div class="galery__card-description">
-                <h2 class="galery__card-title">Копенгаген, Дания</h2>
-                <button class="galery__card-like-button" type="button" title="Понравилось"></button>
-              </div>
+            <li>
+              <article class="galery__card-item">
+                <img class="galery__card-image" alt="Копенгаген" src="./images/Kopengagen.jpg">
+                <div class="galery__card-description">
+                  <h2 class="galery__card-title">Копенгаген, Дания</h2>
+                  <button class="galery__card-like-button" type="button" title="Понравилось"></button>
+                </div>
+              </article>
             </li>
-            <li class="galery__card-item">
-              <img class="galery__card-image" alt="Брюссель" src="./images/Brussels.jpg">
-              <div class="galery__card-description">
-                <h2 class="galery__card-title">Брюссель, Бельгия</h2>
-                <button class="galery__card-like-button" type="button" title="Понравилось"></button>
-              </div>
+            <li>
+              <article class="galery__card-item">
+                <img class="galery__card-image" alt="Брюссель" src="./images/Brussels.jpg">
+                <div class="galery__card-description">
+                  <h2 class="galery__card-title">Брюссель, Бельгия</h2>
+                  <button class="galery__card-like-button" type="button" title="Понравилось"></button>
+                </div>
+              </article>
             </li>
-            <li class="galery__card-item">
-              <img class="galery__card-image" alt="Мыс Рока" src="./images/Cabo_da_Roca.jpg">
-              <div class="galery__card-description">
-                <h2 class="galery__card-title">Мыс Рока, Португалия</h2>
-                <button class="galery__card-like-button" type="button" title="Понравилось"></button>
-              </div>
+            <li>
+              <article class="galery__card-item">
+                <img class="galery__card-image" alt="Мыс Рока" src="./images/Cabo_da_Roca.jpg">
+                <div class="galery__card-description">
+                  <h2 class="galery__card-title">Мыс Рока, Португалия</h2>
+                  <button class="galery__card-like-button" type="button" title="Понравилось"></button>
+                </div>
+              </article>
             </li>
-            <li class="galery__card-item">
-              <img class="galery__card-image" alt="Замок Нойшванштайн" src="./images/Neuschwanstein.jpg">
-              <div class="galery__card-description">
-                <h2 class="galery__card-title">Нойшванштайн, Германия</h2>
-                <button class="galery__card-like-button" type="button" title="Понравилось"></button>
-              </div>
+            <li>
+              <article class="galery__card-item">
+                <img class="galery__card-image" alt="Замок Нойшванштайн" src="./images/Neuschwanstein.jpg">
+                <div class="galery__card-description">
+                  <h2 class="galery__card-title">Нойшванштайн, Германия</h2>
+                  <button class="galery__card-like-button" type="button" title="Понравилось"></button>
+                </div>
+              </article>
             </li>
           </ul>
         </section>
@@ -79,6 +91,20 @@
       <footer class="footer">
         <h2 class="footer__copyright">&copy; 2023 Mesto Russia</h2>
       </footer>
+      <section class="popup popup_opened">
+        <div class="popup__container">
+          <form class="form">
+            <h2 class="form__title">Редактировать профиль</h2>
+            <fieldset class="form__input-container">
+              <input class="form__input" type="text" id="profile-name" placeholder="Имя">
+              <input class="form__input" type="text" id="profile-description" placeholder="Описание">
+            </fieldset>
+            <button class="form__submit-button" type="submit">Сохранить</button>
+          </form>
+          <button class="popup__close-button" type="button" title="Закрыть">
+        </div>
+      </section>
     </div>
+    <script src="./index.js"></script>
   </body>
 </html>
