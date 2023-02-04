@@ -24,11 +24,13 @@
 /* Galery */
 @import url(../blocks/galery/galery.css);
 @import url(../blocks/galery/__cards/galery__cards.css);
-@import url(../blocks/galery/__card-item/galery__card-item.css);
-@import url(../blocks/galery/__card-image/galery__card-image.css);
-@import url(../blocks/galery/__card-description/galery__card-description.css);
-@import url(../blocks/galery/__card-title/galery__card-title.css);
-@import url(../blocks/galery/__card-like-button/galery__card-like-button.css);
+
+/* Card */
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__description/card__description.css);
+@import url(../blocks/card/__title/card__title.css);
+@import url(../blocks/card/__like-button/card__like-button.css);
 
 /* Footer */
 @import url(../blocks/footer/footer.css);

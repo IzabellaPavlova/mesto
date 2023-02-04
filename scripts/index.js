@@ -14,7 +14,7 @@ function getUserCard() {
 
 function getProfileForm() {
   let newProfileName = document.querySelector('.form__input_text-profile_name');
-  let newProfileDescription = document.querySelector('.form__input_text-profile-description');
+  let newProfileDescription = document.querySelector('.form__input_text-profile_description');
   return {"newProfileName": newProfileName, "newProfileDescription": newProfileDescription}
 }
 

@@ -1,6 +1,7 @@
 .form__submit-button {
   margin: 48px 36px 37px;
   padding: 0;
+  border: none;
   height: 50px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
