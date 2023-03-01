@@ -1,3 +1,33 @@
+// Gallery cards
+
+const initialCards = [
+  {name: "Париж, Франция", link: "./images/Paris.jpg"},
+  {name: "Абиско, Швеция", link: "./images/Abisco.jpg"},
+  {name: "Копенгаген, Дания", link: "./images/Kopengagen.jpg"},
+  {name: "Брюссель, Бельгия", link: "./images/Brussels.jpg"},
+  {name: "Мыс Рока, Португалия", link: "./images/Cabo_da_Roca.jpg"},
+  {name: "Нойшванштайн, Германия", link: "./images/Neuschwanstein.jpg"}
+]
+
+function createGaleryCards(cards) {
+  const cardTemplate = document.querySelector('#card').content;
+  const galeryCards = cards.map(function(card) {
+    const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
+    cardElement.querySelector('.card__image').src = card.link;
+    cardElement.querySelector('.card__image').alt = card.name;
+    cardElement.querySelector('.card__title').textContent = card.name;
+    return cardElement;
+  })
+  const galeryElement = document.querySelector('.galery__cards');
+  galeryCards.forEach(card => {
+    galeryElement.append(card);
+  });
+}
+
+createGaleryCards(initialCards);
+
+// Pop-ups
+
 let popup = document.querySelector('.popup');
 let editButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.popup__close-button');
