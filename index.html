@@ -39,9 +39,9 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
       </footer>
-      <section class="popup">
+      <section class="popup popup-profile">
         <div class="popup__container">
-          <form class="form" name="form-profile">
+          <form class="form form-profile" name="form-profile">
             <p class="form__title">Редактировать профиль</p>
             <fieldset class="form__input-container">
               <input class="form__input form__input_text-profile_name"
@@ -51,7 +51,22 @@
             </fieldset>
             <button class="form__submit-button" type="submit">Сохранить</button>
           </form>
-          <button class="popup__close-button" type="button" title="Закрыть"></button>
+          <button class="popup__close-button popup__close-button_profile" type="button" title="Закрыть"></button>
+        </div>
+      </section>
+      <section class="popup popup-add-card">
+        <div class="popup__container">
+          <form class="form form-add-card" name="form-add-card">
+            <p class="form__title">Новое место</p>
+            <fieldset class="form__input-container">
+              <input class="form__input form__input_text-add-card_name"
+                type="text" name="profile-name" placeholder="Название">
+              <input class="form__input form__input_text-add-card_link"
+                type="text" name="profile-description" placeholder="Ссылка на картинку">
+            </fieldset>
+            <button class="form__submit-button" type="submit">Создать</button>
+          </form>
+          <button class="popup__close-button popup__close-button_add-card" type="button" title="Закрыть"></button>
         </div>
       </section>
     </div>
