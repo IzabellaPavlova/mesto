@@ -6,7 +6,7 @@ const initialCards = [
   {name: "Копенгаген, Дания", link: "./images/Kopengagen.jpg"},
   {name: "Брюссель, Бельгия", link: "./images/Brussels.jpg"},
   {name: "Мыс Рока, Португалия", link: "./images/Cabo_da_Roca.jpg"},
-  {name: "Нойшванштайн, Германия", link: "./images/Neuschwanstein.jpg"}
+  {name: "Цурих, Швейцария", link: "./images/Zurich.jpg"}
 ]
 
 function getCardElement(imageSrc, cardTitle) {
@@ -23,7 +23,26 @@ function getCardElement(imageSrc, cardTitle) {
     const galeryElement = document.querySelector('.galery__cards');
     galeryElement.removeChild(card);
   });
+  cardElement.querySelector('.card__image').addEventListener('click', function(evt) {
+    openPopupImage(evt.target);
+  });
   return cardElement;
+}
+
+let popupImage = document.querySelector('.popup-image');
+let closePopupImageButton = document.querySelector('.popup__close-button_image');
+
+console.log(closePopupImageButton.outerHTML);
+
+closePopupImageButton.addEventListener('click', () => closePopup(popupImage));
+
+function openPopupImage(card) {
+  let popupImageItem = document.querySelector('.popup__image');
+  popupImageItem.src = card.src;
+  popupImageItem.alt = card.alt;
+  let popupImageCaption = document.querySelector('.popup__image-caption');
+  popupImageCaption.textContent = card.alt;
+  popupImage.classList.add('popup_opened');
 }
 
 function createGaleryCards(cards) {
