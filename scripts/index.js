@@ -18,6 +18,11 @@ function getCardElement(imageSrc, cardTitle) {
   cardElement.querySelector('.card__like-button').addEventListener('click', function(evt) {
     evt.target.classList.toggle('card__like-button_active');
   });
+  cardElement.querySelector('.card__delete-button').addEventListener('click', function(evt) {
+    const card = evt.target.parentNode;
+    const galeryElement = document.querySelector('.galery__cards');
+    galeryElement.removeChild(card);
+  });
   return cardElement;
 }
 
