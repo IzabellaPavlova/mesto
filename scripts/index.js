@@ -15,6 +15,9 @@ function getCardElement(imageSrc, cardTitle) {
   cardElement.querySelector('.card__image').src = imageSrc;
   cardElement.querySelector('.card__image').alt = cardTitle;
   cardElement.querySelector('.card__title').textContent = cardTitle;
+  cardElement.querySelector('.card__like-button').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('card__like-button_active');
+  });
   return cardElement;
 }
 
