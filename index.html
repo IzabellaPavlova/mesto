@@ -45,9 +45,9 @@
             <p class="form__title">Редактировать профиль</p>
             <fieldset class="form__input-container">
               <input class="form__input form__input_text-profile_name"
-                type="text" name="profile-name" placeholder="Имя">
+                type="text" name="profile-name" placeholder="Имя" required>
               <input class="form__input form__input_text-profile_description"
-                type="text" name="profile-description" placeholder="Описание">
+                type="text" name="profile-description" placeholder="Описание" required>
             </fieldset>
             <button class="form__submit-button" type="submit">Сохранить</button>
           </form>
@@ -61,9 +61,9 @@
             <p class="form__title">Новое место</p>
             <fieldset class="form__input-container">
               <input class="form__input form__input_text-add-card_name"
-                type="text" name="profile-name" placeholder="Название">
+                type="text" name="profile-name" placeholder="Название" required>
               <input class="form__input form__input_text-add-card_link"
-                type="text" name="profile-description" placeholder="Ссылка на картинку">
+                type="url" name="profile-description" placeholder="Ссылка на картинку" required>
             </fieldset>
             <button class="form__submit-button" type="submit">Создать</button>
           </form>
@@ -71,7 +71,7 @@
             type="button" title="Закрыть"></button>
         </div>
       </section>
-      <section class="popup popup-image">
+      <section class="popup popup-image popup_theme_black">
         <div class="popup__container">
           <figure class="popup__image-container">
             <img class="popup__image" src="#" alt="#">
@@ -95,6 +95,7 @@
         </article>
       </li>
     </template>
+    <script src="./scripts/constants.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

@@ -4,4 +4,10 @@
   border-top-right-radius: 10px;
   height: 282px;
   object-fit: cover;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.card__image:hover {
+  cursor: pointer;
 }
