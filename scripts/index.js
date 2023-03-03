@@ -9,8 +9,8 @@ function getCardElement(imageSrc, cardTitle) {
   cardElement.querySelector('.card__like-button').addEventListener('click', function(evt) {
     evt.target.classList.toggle('card__like-button_active');
   });
-  cardElement.querySelector('.card__delete-button').addEventListener('click', function(evt) {
-    evt.target.parentNode.remove();
+  cardElement.querySelector('.card__delete-button').addEventListener('click', function() {
+    cardElement.remove();
   });
   cardElement.querySelector('.card__image').addEventListener('click', function(evt) {
     openPopupImage(imageSrc = evt.target.src, cardTitle = evt.target.alt);
