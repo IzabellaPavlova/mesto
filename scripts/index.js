@@ -43,11 +43,20 @@ createGaleryCards(initialCards);
 
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
 }
 
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopup);
 }
+
+const closePopupEsc = (evt) => {
+  if( evt.key === "Escape"){
+    const popupElement = document.querySelector('.popup_opened');
+    // closePopup(popupElement);
+  }
+};
 
 // Pop-up profile
 
