@@ -41,20 +41,22 @@
       </footer>
       <section class="popup popup-profile">
         <div class="popup__container">
-          <form class="form form-profile" name="form-profile">
+          <form class="form form-profile" name="form-profile" novalidate>
             <p class="form__title">Редактировать профиль</p>
             <fieldset class="form__input-container">
               <label class="form__field">
                 <input class="form__input form__input_text-profile_name"
                   type="text" name="profile-name" placeholder="Имя" required
-                  minlength="2" maxlength="40">
+                  minlength="2" maxlength="40" id="profile-name">
                 <span class="form__input-error profile-name-error"></span>
               </label>
               <label class="form__field">
                 <input class="form__input form__input_text-profile_description"
                   type="text" name="profile-description" placeholder="Описание"
-                  required minlength="2" maxlength="200">
-                <span class="form__input-error profile-description-error">Error is here</span>
+                  required minlength="2" maxlength="200"
+                  id="profile-description">
+                <span class="form__input-error profile-description-error">Error
+                  is here</span>
               </label>
             </fieldset>
             <button class="form__submit-button" type="submit">Сохранить</button>
@@ -65,18 +67,21 @@
       </section>
       <section class="popup popup-add-card">
         <div class="popup__container">
-          <form class="form form-add-card" name="form-add-card">
+          <form class="form form-add-card" name="form-add-card" novalidate>
             <p class="form__title">Новое место</p>
             <fieldset class="form__input-container">
               <label class="form__field">
                 <input class="form__input form__input_text-add-card_name"
-                  type="text" name="profile-name" placeholder="Название" required
-                  minlength="2" maxlength="30">
+                  type="text" name="profile-name" placeholder="Название"
+                  required
+                  minlength="2" maxlength="30" id="card-name">
                 <span class="form__input-error card-name-error"></span>
               </label>
               <label class="form__field">
                 <input class="form__input form__input_text-add-card_link"
-                  type="url" name="profile-description" placeholder="Ссылка&nbspна&nbspкартинку" required>
+                  type="url" name="profile-description"
+                  placeholder="Ссылка&nbspна&nbspкартинку" required
+                  id="card-description">
                 <span class="form__input-error card-description-error"></span>
               </label>
             </fieldset>
