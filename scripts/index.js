@@ -37,8 +37,6 @@ function createGaleryCards(cards) {
   })
 }
 
-createGaleryCards(initialCards);
-
 // Popups
 const popups = document.querySelectorAll('.popup');
 
@@ -74,12 +72,15 @@ function setOutClickListeners(elements) {
   });
 }
 
-setOutClickListeners(popups);
-
 // Pop-up profile
 
 const userCard = getUserCard();
 const newUserCard = getProfileForm()
+
+function fillPopupProfile() {
+  newUserCard.newProfileName.value = userCard.profileName.textContent;
+  newUserCard.newProfileDescription.value = userCard.profileDescription.textContent;
+}
 
 function getUserCard() {
   const profileName = document.querySelector('.profile__name');
@@ -94,8 +95,7 @@ function getProfileForm() {
 }
 
 function openPopupProfile() {
-  newUserCard.newProfileName.value = userCard.profileName.textContent;
-  newUserCard.newProfileDescription.value = userCard.profileDescription.textContent;
+  fillPopupProfile();
   openPopup(popupProfile);
 }
 
@@ -136,3 +136,12 @@ function addNewCard(evt) {
 addCardButton.addEventListener('click', openPopupAddCard);
 closePopupAddCardButton.addEventListener('click', () => closePopup(popupAddCard));
 submitAddCardForm.addEventListener('submit', addNewCard);
+
+// Execute while page is loading
+
+// add cards to the page
+createGaleryCards(initialCards);
+// fill profile form so that inputs fields are valid before openning the form
+fillPopupProfile();
+// set esc and outPopup close listeners
+setOutClickListeners(popups);

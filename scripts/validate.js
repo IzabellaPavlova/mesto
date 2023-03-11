@@ -33,6 +33,7 @@ const hideInputError = (formElement, inputElement, selectors) => {
 const setEventListeners = (formElement, selectors) => {
   const inputList = Array.from(formElement.querySelectorAll(selectors.InputSelector));
   const buttonElement = formElement.querySelector(selectors.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, selectors);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       isValid(formElement, inputElement, selectors);
@@ -57,8 +58,10 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonElement, selectors) => {
   if (hasInvalidInput(inputList)) {
+    buttonElement.setAttribute('disabled', 'true');
     buttonElement.classList.add(selectors.inactiveButtonClass);
   } else {
+    buttonElement.removeAttribute('disabled');
     buttonElement.classList.remove(selectors.inactiveButtonClass);
   }
 };
