@@ -40,14 +40,41 @@ function createGaleryCards(cards) {
 createGaleryCards(initialCards);
 
 // Popups
+const popups = document.querySelectorAll('.popup');
 
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc(popupElement));
 }
 
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc(popupElement));
 }
+
+function closePopupEsc(popupElement) {
+  return function(evt) {
+    if( evt.key === "Escape"){
+      closePopup(popupElement);
+    }
+  }
+}
+
+function closePopupOutClick(popupElement) {
+  popupElement.addEventListener('click', function(evt) {
+    if (evt.target === evt.currentTarget) {
+      closePopup(popupElement);
+    }
+  });
+}
+
+function setOutClickListeners(elements) {
+  elements.forEach((element) => {
+    closePopupOutClick(element);
+  });
+}
+
+setOutClickListeners(popups);
 
 // Pop-up profile
 
