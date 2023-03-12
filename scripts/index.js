@@ -60,7 +60,7 @@ function closePopupEsc(popupElement) {
 }
 
 function closePopupOutClick(popupElement) {
-  popupElement.addEventListener('click', function(evt) {
+  popupElement.addEventListener('mousedown', function(evt) {
     if (evt.target === evt.currentTarget) {
       closePopup(popupElement);
     }
