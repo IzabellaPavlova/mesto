@@ -1,40 +1,45 @@
 // Gallery cards
+const galeryElement = document.querySelector('.galery__cards');
+const popupImageItem = document.querySelector('.popup__image');
+const popupImageCaption = document.querySelector('.popup__image-caption');
 
 function getCardElement(imageSrc, cardTitle) {
   const cardTemplate = document.querySelector('#card').content;
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
-  cardElement.querySelector('.card__image').src = imageSrc;
-  cardElement.querySelector('.card__image').alt = cardTitle;
+  const cardImage = cardElement.querySelector('.card__image');
+  const cardLikeButton = cardElement.querySelector('.card__like-button');
+  const cardDeleteButton = cardElement.querySelector('.card__delete-button');
+  cardImage.src = imageSrc;
+  cardImage.alt = cardTitle;
   cardElement.querySelector('.card__title').textContent = cardTitle;
-  cardElement.querySelector('.card__like-button').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('card__like-button_active');
-  });
-  cardElement.querySelector('.card__delete-button').addEventListener('click', function() {
-    cardElement.remove();
-  });
-  cardElement.querySelector('.card__image').addEventListener('click', function(evt) {
-    openPopupImage(imageSrc = evt.target.src, cardTitle = evt.target.alt);
-  });
+  cardLikeButton.addEventListener('click', toggleLikeButton);
+  cardDeleteButton.addEventListener('click', () => deleteCard(cardElement));
+  cardImage.addEventListener('click', () => openPopupImage(imageSrc, cardTitle));
   return cardElement;
 }
 
 closePopupImageButton.addEventListener('click', () => closePopup(popupImage));
 
 function openPopupImage(imageSrc, cardTitle) {
-  const popupImageItem = document.querySelector('.popup__image');
   popupImageItem.src = imageSrc;
   popupImageItem.alt = cardTitle;
-  const popupImageCaption = document.querySelector('.popup__image-caption');
   popupImageCaption.textContent = cardTitle;
   openPopup(popupImage);
 }
 
 function createGaleryCards(cards) {
-  const galeryElement = document.querySelector('.galery__cards');
   cards.forEach(function (card) {
     const cardElement = getCardElement(card.link, card.name);
     galeryElement.append(cardElement);
   })
+}
+
+function deleteCard(cardElement) {
+  cardElement.remove();
+}
+
+function toggleLikeButton(evt) {
+  evt.target.classList.toggle('card__like-button_active');
 }
 
 // Popups
@@ -42,24 +47,21 @@ const popups = document.querySelectorAll('.popup');
 
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupEsc(popupElement));
 }
 
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupEsc(popupElement));
 }
 
-function closePopupEsc(popupElement) {
-  return function(evt) {
-    if( evt.key === "Escape"){
-      closePopup(popupElement);
-    }
+function closePopupEsc(evt) {
+  const openPopup = document.querySelector('.popup_opened');
+  if( evt.key === "Escape"){
+    closePopup(openPopup);
   }
 }
 
 function closePopupOutClick(popupElement) {
-  popupElement.addEventListener('click', function(evt) {
+  popupElement.addEventListener('mousedown', function(evt) {
     if (evt.target === evt.currentTarget) {
       closePopup(popupElement);
     }
@@ -95,6 +97,7 @@ function getProfileForm() {
 }
 
 function openPopupProfile() {
+  resetError(popupProfile, selectors);
   fillPopupProfile();
   openPopup(popupProfile);
 }
@@ -115,7 +118,10 @@ submitProfileForm.addEventListener('submit', updateUserCard);
 const newCard = getAddCardForm();
 
 function openPopupAddCard() {
+  resetError(popupAddCard, selectors);
   submitAddCardForm.reset();
+  const inputList = Array.from(popupAddCard.querySelectorAll(selectors.InputSelector));
+  toggleButtonState(inputList, submitCardButton, selectors);
   openPopup(popupAddCard);
 }
 
@@ -128,7 +134,6 @@ function getAddCardForm() {
 function addNewCard(evt) {
   evt.preventDefault();
   const cardElement = getCardElement(newCard.newCardLink.value, newCard.newCardName.value);
-  const galeryElement = document.querySelector('.galery__cards');
   galeryElement.prepend(cardElement);
   closePopup(popupAddCard);
 }
@@ -145,3 +150,5 @@ createGaleryCards(initialCards);
 fillPopupProfile();
 // set esc and outPopup close listeners
 setOutClickListeners(popups);
+
+document.addEventListener('keydown', closePopupEsc);

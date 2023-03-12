@@ -66,4 +66,12 @@ const toggleButtonState = (inputList, buttonElement, selectors) => {
   }
 };
 
+function resetError(popupElement, selectors) {
+  const formElement = popupElement.querySelector(selectors.formSelector);
+  const inputList = Array.from(formElement.querySelectorAll(selectors.InputSelector));
+  inputList.forEach(inputElement => hideInputError(formElement, inputElement, selectors));
+  const buttonElement = formElement.querySelector(selectors.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, selectors);
+}
+
 enableValidation(selectors);

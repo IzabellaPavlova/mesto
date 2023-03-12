@@ -17,5 +17,6 @@ const closePopupProfileButton = document.querySelector('.popup__close-button_pro
 
 const popupAddCard = document.querySelector('.popup-add-card');
 const addCardButton = document.querySelector('.profile__add-button');
+const submitCardButton = popupAddCard.querySelector('.form__submit-button');
 const closePopupAddCardButton = document.querySelector('.popup__close-button_add-card');
 const submitAddCardForm = document.querySelector('.form-add-card');
