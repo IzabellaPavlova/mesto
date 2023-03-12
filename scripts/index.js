@@ -46,6 +46,7 @@ function closePopup(popupElement) {
 }
 
 function openPopup(popupElement) {
+  resetError(popupElement, selectors);
   popupElement.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc(popupElement));
 }
