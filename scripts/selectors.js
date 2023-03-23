@@ -1,6 +1,6 @@
 export const validatorSelectors = {
   formSelector: '.form',
-  InputSelector: '.form__input',
+  inputSelector: '.form__input',
   submitButtonSelector: '.form__submit-button',
   inactiveButtonClass: 'form__submit-button_disabled',
   inputErrorClass: 'form__input_type_error',
@@ -24,7 +24,7 @@ export const popupSelectors = {
   elementSelector: '.popup',
   imageSelector: '.popup__image',
   imageCaptionSelector: '.popup__image-caption',
-  closeImageButtonSelector: '.popup__close-button_image',
+  closeButtonClass: 'popup__close-button',
   openPopupClass: 'popup_opened',
   openPopupSelector: '.popup_opened'
 }
@@ -34,7 +34,6 @@ export const profilePopupSelectors = {
   formSelector: '.form-profile',
   elementSelector: '.popup-profile',
   editButtonSelector: '.profile__edit-button',
-  closeButtonSelector: '.popup__close-button_profile',
   nameSelector: '.profile__name',
   descriptionSelector: '.profile__description',
   inputNameSelector: '.form__input_text-profile_name',
@@ -47,7 +46,6 @@ export const addCardPopupSelectors = {
   elementSelector: '.popup-add-card',
   addButtonSelector: '.profile__add-button',
   submitButtonSelector: '.form__submit-button',
-  closeButtonSelector: '.popup__close-button_add-card',
   inputNameSelector: '.form__input_text-add-card_name',
   inputLinkSelector: '.form__input_text-add-card_link'
 }
