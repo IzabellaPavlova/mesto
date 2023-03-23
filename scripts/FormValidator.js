@@ -2,7 +2,7 @@ export default class FormValidator {
   constructor(selectors, formElement) {
     this._selectors = selectors;
     this._formElement = formElement;
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._selectors.InputSelector));
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._selectors.inputSelector));
     this._buttonElement = this._formElement.querySelector(this._selectors.submitButtonSelector);
   }
 

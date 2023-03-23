@@ -20,16 +20,13 @@ export const galeryElement = document.querySelector(gallerySelectors.elementSele
 export const popupList = document.querySelectorAll(popupSelectors.elementSelector);
 export const popupImageItem = document.querySelector(popupSelectors.imageSelector);
 export const popupImageCaption = document.querySelector(popupSelectors.imageCaptionSelector);
-export const closePopupImageButton = document.querySelector(popupSelectors.closeImageButtonSelector);
 
 export const popupProfile = document.querySelector(profilePopupSelectors.elementSelector);
 export const editProfileButton = document.querySelector(profilePopupSelectors.editButtonSelector);
-export const closePopupProfileButton = document.querySelector(profilePopupSelectors.closeButtonSelector);
 export const submitProfileButton = document.querySelector(profilePopupSelectors.formSelector);
 
 export const popupAddCard = document.querySelector(addCardPopupSelectors.elementSelector);
 export const addCardButton = document.querySelector(addCardPopupSelectors.addButtonSelector);
-export const closePopupAddCardButton = document.querySelector(addCardPopupSelectors.closeButtonSelector);
 export const submitAddCardForm = document.querySelector(addCardPopupSelectors.formSelector);
 
 export const popupImage = document.querySelector(imagePopupSelectors.elementSelector);
