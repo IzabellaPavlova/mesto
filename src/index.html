@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Проектная работа №4">
+    <meta name="keywords" content="путешествие, отдых, отпуск, горы, поход,
+      пейзаж, каникулы">
+    <meta name="author" content="Павлова Изабелла">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+  </head>
+  <body class="body">
+    <div class="page">
+      <header class="header">
+        <a href="#"><img class="header__logo" alt="Логотип Место"
+            src="<%=require('./images/header-logo.svg')%>"></a>
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__user-card">
+            <img class="profile__avatar" alt="Аватар пользователя Место"
+              src="<%=require('./images/profile__avatar.jpg')%>">
+            <div class="profile__info">
+              <h1 class="profile__name">Изабелла</h1>
+              <button class="profile__edit-button" type="button"
+                title="Редактировать профиль"></button>
+              <p class="profile__description">Экспериментатор</p>
+            </div>
+          </div>
+          <button class="profile__add-button" type="button" title="Добавить
+            новое место"></button>
+        </section>
+        <section class="galery">
+          <ul class="galery__cards">
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+      </footer>
+      <section class="popup popup-profile">
+        <div class="popup__container">
+          <form class="form form-profile" name="form-profile" novalidate>
+            <p class="form__title">Редактировать профиль</p>
+            <fieldset class="form__input-container">
+              <label class="form__field">
+                <input class="form__input form__input_text-profile_name"
+                  type="text" name="profile-name" placeholder="Имя" required
+                  minlength="2" maxlength="40" id="profile-name">
+                <span class="form__input-error profile-name-error"></span>
+              </label>
+              <label class="form__field">
+                <input class="form__input form__input_text-profile_description"
+                  type="text" name="profile-description" placeholder="Описание"
+                  required minlength="2" maxlength="200"
+                  id="profile-description">
+                <span class="form__input-error profile-description-error">Error
+                  is here</span>
+              </label>
+            </fieldset>
+            <button class="form__submit-button" type="submit">Сохранить</button>
+          </form>
+          <button class="popup__close-button popup__close-button_profile"
+            type="button" title="Закрыть"></button>
+        </div>
+      </section>
+      <section class="popup popup-add-card">
+        <div class="popup__container">
+          <form class="form form-add-card" name="form-add-card" novalidate>
+            <p class="form__title">Новое место</p>
+            <fieldset class="form__input-container">
+              <label class="form__field">
+                <input class="form__input form__input_text-add-card_name"
+                  type="text" name="profile-name" placeholder="Название"
+                  required
+                  minlength="2" maxlength="30" id="card-name">
+                <span class="form__input-error card-name-error"></span>
+              </label>
+              <label class="form__field">
+                <input class="form__input form__input_text-add-card_link"
+                  type="url" name="profile-description"
+                  placeholder="Ссылка&nbsp;на&nbsp;картинку" required
+                  id="card-description">
+                <span class="form__input-error card-description-error"></span>
+              </label>
+            </fieldset>
+            <button class="form__submit-button" type="submit">Создать</button>
+          </form>
+          <button class="popup__close-button popup__close-button_add-card"
+            type="button" title="Закрыть"></button>
+        </div>
+      </section>
+      <section class="popup popup-image popup_theme_black">
+        <div class="popup__container">
+          <figure class="popup__image-container">
+            <img class="popup__image" src="#" alt="#">
+            <figcaption class="popup__image-caption"></figcaption>
+          </figure>
+          <button class="popup__close-button popup__close-button_image"
+            type="button" title="Закрыть"></button>
+        </div>
+      </section>
+    </div>
+    <template id="card">
+      <li>
+        <article class="card">
+          <img class="card__image" alt="#" src="#">
+          <div class="card__description">
+            <h2 class="card__title"></h2>
+            <button class="card__like-button" type="button"
+              title="Понравилось"></button>
+          </div>
+          <button class="card__delete-button" type="button" title="Удалить"></button>
+        </article>
+      </li>
+    </template>
+  </body>
+</html>
