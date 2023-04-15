@@ -24,6 +24,8 @@ export const popupSelectors = {
   elementSelector: '.popup',
   imageSelector: '.popup__image',
   imageCaptionSelector: '.popup__image-caption',
+  formSelector: '.form',
+  inputSelector: '.form__input',
   closeButtonClass: 'popup__close-button',
   openPopupClass: 'popup_opened',
   openPopupSelector: '.popup_opened'

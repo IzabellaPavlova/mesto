@@ -1,9 +1,6 @@
 import {
-  gallerySelectors,
-  popupSelectors,
   profilePopupSelectors,
   addCardPopupSelectors,
-  imagePopupSelectors,
 } from './selectors.js';
 
 const parisImage = new URL('../images/Paris.jpg', import.meta.url);
@@ -22,18 +19,5 @@ export const initialCards = [
   {name: 'Цюрих, Швейцария', link: zurichImage}
 ]
 
-export const galeryElement = document.querySelector(gallerySelectors.elementSelector);
-
-export const popupList = document.querySelectorAll(popupSelectors.elementSelector);
-export const popupImageItem = document.querySelector(popupSelectors.imageSelector);
-export const popupImageCaption = document.querySelector(popupSelectors.imageCaptionSelector);
-
-export const popupProfile = document.querySelector(profilePopupSelectors.elementSelector);
 export const editProfileButton = document.querySelector(profilePopupSelectors.editButtonSelector);
-export const submitProfileButton = document.querySelector(profilePopupSelectors.formSelector);
-
-export const popupAddCard = document.querySelector(addCardPopupSelectors.elementSelector);
 export const addCardButton = document.querySelector(addCardPopupSelectors.addButtonSelector);
-export const submitAddCardForm = document.querySelector(addCardPopupSelectors.formSelector);
-
-export const popupImage = document.querySelector(imagePopupSelectors.elementSelector);
