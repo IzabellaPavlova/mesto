@@ -32,7 +32,7 @@ export const popupSelectors = {
 }
 
 export const profilePopupSelectors = {
-  formClass: 'form-profile',
+  formName: 'form-profile',
   formSelector: '.form-profile',
   elementSelector: '.popup-profile',
   editButtonSelector: '.profile__edit-button',
@@ -43,7 +43,7 @@ export const profilePopupSelectors = {
 }
 
 export const addCardPopupSelectors = {
-  formClass: 'form-add-card',
+  formName: 'form-add-card',
   formSelector: '.form-add-card',
   elementSelector: '.popup-add-card',
   addButtonSelector: '.profile__add-button',

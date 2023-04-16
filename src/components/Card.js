@@ -18,9 +18,8 @@ export default class Card {
 
   _fillInfo = () => {
     this._element.querySelector(this._cardSelectors.titleSelector).textContent = this._cardTitle;
-    const cardImage = this._element.querySelector(this._cardSelectors.imageSelector);
-    cardImage.src = this._imageSrc;
-    cardImage.alt = this._cardTitle;
+    this._cardImage.src = this._imageSrc;
+    this._cardImage.alt = this._cardTitle;
   }
 
   _handleLikeClick = (evt) => {
@@ -39,13 +38,14 @@ export default class Card {
     this._element.querySelector(this._cardSelectors.likeButtonSelector).addEventListener('click', (evt) => {
       this._handleLikeClick(evt);
     })
-    this._element.querySelector(this._cardSelectors.imageSelector).addEventListener('click', () => {
+    this._cardImage.addEventListener('click', () => {
       this._handleCardClick(this._imageSrc, this._cardTitle);
     })
   }
 
   generateCard = () => {
     this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector(this._cardSelectors.imageSelector);
     this._fillInfo();
     this._setEventListemers();
     return this._element;

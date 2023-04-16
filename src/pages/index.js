@@ -69,39 +69,31 @@ const userInfo = new UserInfo({
   descriptionSelector: profilePopupSelectors.descriptionSelector
 });
 
-const popupProfile = new PopupWithForm(profilePopupSelectors.elementSelector, popupSelectors, (evt) => {
-  evt.preventDefault();
-  const userCard = popupProfile.getFormValues();
+const popupProfile = new PopupWithForm(profilePopupSelectors.elementSelector, popupSelectors, (userCard) => {
   userInfo.setUserInfo({ profileName: userCard.name, profileDescription: userCard.description });
-  popupProfile.close();
 })
 popupProfile.setEventListeners();
 
 editProfileButton.addEventListener('click', () => {
-  formValidators[profilePopupSelectors.formClass].resetValidation();
+  formValidators[profilePopupSelectors.formName].resetValidation();
   const userInfoData = userInfo.getUserInfo();
-  const profileFormElement = popupProfile.getFormElement();
-  profileFormElement.elements.name.value = userInfoData.profileName;
-  profileFormElement.elements.description.value = userInfoData.profileDescription;
+  popupProfile.setFormValues({ name: userInfoData.profileName, description: userInfoData.profileDescription })
   popupProfile.open();
 })
 
 // Add new card popup
 
-const popupAddNewCard = new PopupWithForm(addCardPopupSelectors.elementSelector, popupSelectors, (evt) => {
-  evt.preventDefault();
-  const newCardData = popupAddNewCard.getFormValues();
+const popupAddNewCard = new PopupWithForm(addCardPopupSelectors.elementSelector, popupSelectors, (newCardData) => {
   const newCard = createCard(
     newCardData,
     cardTemplateSelector,
     cardSelectors
   );
   galeryCards.addNewItem(newCard);
-  popupAddNewCard.close();
 })
 popupAddNewCard.setEventListeners();
 
 addCardButton.addEventListener('click', () => {
-  formValidators[addCardPopupSelectors.formClass].resetValidation();
+  formValidators[addCardPopupSelectors.formName].resetValidation();
   popupAddNewCard.open();
 })
