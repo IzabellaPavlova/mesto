@@ -18,8 +18,10 @@
       <main class="content">
         <section class="profile">
           <div class="profile__user-card">
-            <img class="profile__avatar" alt="Аватар пользователя Место"
-              src="<%=require('./images/profile__avatar.jpg')%>">
+            <button class="profile__edit-avatar-button" type="button"
+              title="Обновить аватар"><img class="profile__avatar" alt="Аватар
+                пользователя Место"
+                src="<%=require('./images/profile__avatar.jpg')%>"></button>
             <div class="profile__info">
               <h1 class="profile__name">Изабелла</h1>
               <button class="profile__edit-button" type="button"
@@ -97,6 +99,35 @@
             <figcaption class="popup__image-caption"></figcaption>
           </figure>
           <button class="popup__close-button popup__close-button_image"
+            type="button" title="Закрыть"></button>
+        </div>
+      </section>
+      <section class="popup popup-confirm">
+        <div class="popup__container">
+          <form class="form form-confirm" name="form-confirm" novalidate>
+            <p class="form__title">Вы уверены?</p>
+            <button class="form__submit-button" type="submit">Да</button>
+          </form>
+          <button class="popup__close-button popup__close-button_confirm"
+            type="button" title="Закрыть"></button>
+        </div>
+      </section>
+      <section class="popup popup-avatar">
+        <div class="popup__container">
+          <form class="form form-avatar" name="form-avatar" novalidate>
+            <p class="form__title">Обновить аватар</p>
+            <fieldset class="form__input-container">
+              <label class="form__field">
+                <input class="form__input form__input_text-avatar_link"
+                  type="url" name="link"
+                  placeholder="Ссылка&nbsp;на&nbsp;аватар" required
+                  id="avatar">
+                <span class="form__input-error avatar-error"></span>
+              </label>
+            </fieldset>
+            <button class="form__submit-button" type="submit">Сохранить</button>
+          </form>
+          <button class="popup__close-button popup__close-button_add-card"
             type="button" title="Закрыть"></button>
         </div>
       </section>
