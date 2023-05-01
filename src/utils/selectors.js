@@ -13,7 +13,8 @@ export const cardSelectors = {
   imageSelector: '.card__image',
   activeLikeButtonClass: 'card__like-button_active',
   deleteButtonSelector: '.card__delete-button',
-  likeButtonSelector: '.card__like-button'
+  likeButtonSelector: '.card__like-button',
+  likeCounterSelector: '.card__like-count'
 }
 
 export const gallerySelectors = {
@@ -27,6 +28,7 @@ export const popupSelectors = {
   formSelector: '.form',
   inputSelector: '.form__input',
   closeButtonClass: 'popup__close-button',
+  submitButtonSelector: '.form__submit-button',
   openPopupClass: 'popup_opened',
   openPopupSelector: '.popup_opened'
 }
@@ -38,8 +40,18 @@ export const profilePopupSelectors = {
   editButtonSelector: '.profile__edit-button',
   nameSelector: '.profile__name',
   descriptionSelector: '.profile__description',
+  avatarSelector: '.profile__avatar',
   inputNameSelector: '.form__input_text-profile_name',
   inputDescriptionSelector: '.form__input_text-profile_description'
+}
+
+export const avatarPopupSelectors = {
+  formName: 'form-avatar',
+  formSelector: '.form-avatar',
+  elementSelector: '.popup-avatar',
+  editButtonSelector: '.profile__edit-avatar-button',
+  avatarSelector: '.profile__avatar',
+  inputAvatarSelector: '.form__input_text-avatar_link'
 }
 
 export const addCardPopupSelectors = {
@@ -54,6 +66,10 @@ export const addCardPopupSelectors = {
 
 export const imagePopupSelectors = {
   elementSelector: '.popup-image'
+}
+
+export const confirmPopupSelectors = {
+  elementSelector: '.popup-confirm'
 }
 
 export const cardTemplateSelector = '#card';
