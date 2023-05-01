@@ -17,12 +17,27 @@ export default class UserInfo {
   }
 
   setUserInfo({ profileName, profileDescription }) {
-    this._nameElement.textContent = profileName;
-    this._descriptionElement.textContent = profileDescription;
+    if (profileName){
+      this._nameElement.textContent = profileName;
+    }
+    else {
+      console.error('No profile name');
+    }
+    if (profileDescription) {
+      this._descriptionElement.textContent = profileDescription;
+    }
+    else {
+      console.error('No profile description');
+    }
   }
 
   setUserAvatar({ profileAvatarLink }) {
-    this._avatarElement.src = profileAvatarLink;
+    if (profileAvatarLink) {
+      this._avatarElement.src = profileAvatarLink;
+    }
+    else {
+      console.error('No profile avatar link');
+    }
   }
 
   addUserId(userId) {

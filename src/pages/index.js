@@ -74,18 +74,21 @@ const createCard = (card, cardTemplateSelector, cardSelectors) => {
       }
     },
     handleDeleteClick: () => {
-      PopupConfirmDelete.setHandlerSubmitForm(() => {
+      popupConfirmDelete.setHandlerSubmitForm(() => {
         api.removeCard(cardElement.getCardId()).then(() => {
           cardElement.handleDeleteClick();
+          popupConfirmDelete.close();
         }).catch((error) => {
           console.error(error);
         });
       });
-      PopupConfirmDelete.open();
+      popupConfirmDelete.open();
     },
   });
   return cardElement.generateCard();
 }
+
+// Render cards and profile
 
 const galeryCards = new Section({
   renderer: (item) => {
@@ -94,10 +97,20 @@ const galeryCards = new Section({
   }
 }, gallerySelectors.elementSelector)
 
-api.getInitialCards().then((data) => {
-  console.log(data);
-  galeryCards.renderItems(data);
-})
+const userInfo = new UserInfo({
+  nameSelector: profilePopupSelectors.nameSelector,
+  descriptionSelector: profilePopupSelectors.descriptionSelector,
+  avatarSelector: profilePopupSelectors.avatarSelector,
+});
+
+Promise.all([api.getUserInfo(), api.getInitialCards()]).then(([userData, cards]) => {
+  userInfo.setUserInfo({ profileName: userData.name, profileDescription: userData.about });
+  userInfo.setUserAvatar({ profileAvatarLink: userData.avatar });
+  userInfo.addUserId(userData._id);
+  galeryCards.renderItems(cards);
+}).catch((error) => {
+  console.error(error);
+});
 
 // Validations
 
@@ -116,24 +129,11 @@ enableValidation(validatorSelectors);
 
 // Profile popup
 
-const userInfo = new UserInfo({
-  nameSelector: profilePopupSelectors.nameSelector,
-  descriptionSelector: profilePopupSelectors.descriptionSelector,
-  avatarSelector: profilePopupSelectors.avatarSelector,
-});
-
-api.getUserInfo().then((data) => {
-  userInfo.setUserInfo({ profileName: data.name, profileDescription: data.about });
-  userInfo.setUserAvatar({ profileAvatarLink: data.avatar });
-  userInfo.addUserId(data._id);
-}).catch((error) => {
-  console.error(error);
-});
-
 const popupProfile = new PopupWithForm(profilePopupSelectors.elementSelector, popupSelectors, (userCard) => {
   popupProfile.isLoadingMessage(true);
   api.updateUserInfo({ name: userCard.name, about: userCard.description }).then((data) => {
     userInfo.setUserInfo({ profileName: data.name, profileDescription: data.about });
+    popupProfile.close();
   }).catch((error) => {
     console.error(error);
   }).finally(() => {
@@ -155,6 +155,7 @@ const popupAvatar = new PopupWithForm(avatarPopupSelectors.elementSelector, popu
   popupAvatar.isLoadingMessage(true);
   api.updateProfileAvatar({ avatar: userAvatar.link }).then((data) => {
     userInfo.setUserAvatar({ profileAvatarLink: data.avatar });
+    popupAvatar.close();
   }).catch((error) => {
     console.error(error);
   }).finally(() => {
@@ -176,13 +177,13 @@ const popupAddNewCard = new PopupWithForm(addCardPopupSelectors.elementSelector,
   popupAddNewCard.isLoadingMessage(true);
   const newCard = { name: newCardData.name, link: newCardData.link }
   api.addNewCard(newCard).then((data) => {
-    console.log(data);
     const newCardElement = createCard(
       data,
       cardTemplateSelector,
       cardSelectors
     );
     galeryCards.addNewItem(newCardElement);
+    popupAddNewCard.close();
   }).catch((error) => {
     console.error(error);
   }).finally(() => {
@@ -198,5 +199,5 @@ addCardButton.addEventListener('click', () => {
 
 // Confirm delete popup
 
-const PopupConfirmDelete = new PopupWithConfirm(confirmPopupSelectors.elementSelector, popupSelectors);
-PopupConfirmDelete.setEventListeners();
+const popupConfirmDelete = new PopupWithConfirm(confirmPopupSelectors.elementSelector, popupSelectors);
+popupConfirmDelete.setEventListeners();
